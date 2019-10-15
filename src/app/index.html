@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text" value = "Upendra is a nice guy">
+    <script>
+        let query;
+        window.onload = () => {
+            query = document.getElementById('text');
+            query.addEventListener('input', (event) => getCursorText(event));
+        }
+
+        function getCursorText(event) {
+            let i, value = event.srcElement.value;
+            for(i = query.selectionStart-1; i>=0; i--) {                
+                if(value[i] === " ") {
+                    console.log(value[i]);
+                    
+                    break;
+                }
+            }
+            i++;
+            console.log(value, i);
+            
+            const word = value.slice(i).split(" ")[0];
+            console.log(word);
+            
+            return word;
+        }
+    </script>
+</body>
+</html>
